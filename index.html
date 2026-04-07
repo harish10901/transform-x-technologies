@@ -546,6 +546,16 @@ document.addEventListener("mousemove", (e) => {
   angleY = (e.clientX / window.innerWidth - 0.5) * 0.5;
   angleX = (e.clientY / window.innerHeight - 0.5) * 0.5;
 });  
+
+
+
+const toggle = document.getElementById("navToggle");
+const mobileNav = document.getElementById("mobileNav");
+
+toggle.onclick = () => {
+  mobileNav.classList.toggle("active");
+};
+
 </script>
 </body>
 </html>
