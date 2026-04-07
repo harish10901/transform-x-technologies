@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | TransformX Technologies</title>
+
+
+</head>
+
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<!-- ===== HEADER ===== -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="1774862507089_TransformX_Technologies__logo.jpg" alt="TransformX Logo" onerror="this.style.display='none'">
+    <span class="nav-logo-text">Transform<span>X</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="about.html">Company</a>
+      <div class="dropdown-menu">
+        <a href="about.html">About Us</a>
+        <a href="culture.html">Culture & Values</a>
+        <a href="careers.html">Careers</a>
+        <a href="partners.html">Partners</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <a href="services.html">Services</a>
+      <div class="dropdown-menu">
+        <a href="services.html">All Services</a>
+        <a href="services.html#saas">SaaS Products</a>
+        <a href="services.html#custom">Custom Development</a>
+        <a href="services.html#ai">AI & Automation</a>
+        <a href="services.html#cloud">Cloud Services</a>
+        <a href="services.html#cyber">Cybersecurity</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <a href="solutions.html">Solutions</a>
+      <div class="dropdown-menu">
+        <a href="solutions.html">All Solutions</a>
+        <a href="industries.html">By Industry</a>
+        <a href="expertise.html">Expertise</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <a href="insights.html">Insights</a>
+      <div class="dropdown-menu">
+        <a href="insights.html">Blog & Articles</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="news.html">News</a>
+      </div>
+    </li>
+    
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===== CONTENT ===== -->
+<div class="container">
+
+  <h1>Contact Us</h1>
+  <p>Let’s build something amazing together.</p>
+
+  <div class="contact-grid">
+
+    <!-- FORM -->
+    <div class="card">
+  <h2>Send a Message</h2>
+
+  <form id="contactForm">
+
+  <input type="text" id="name" placeholder="Your Name">
+  <small class="error" id="nameError"></small>
+
+  <input type="email" id="email" placeholder="Email">
+  <small class="error" id="emailError"></small>
+
+  <!-- PHONE WITH COUNTRY CODE -->
+  <div class="phone-group">
+<select id="countryCode" class="country-select">
+  <option value="+91">IN (+91)</option>
+  <option value="+1">US (+1)</option>
+  <option value="+44">UK (+44)</option>
+  <option value="+61">AU (+61)</option>
+  <option value="+971">UAE (+971)</option>
+  <option value="+81">JP (+81)</option>
+  <option value="+49">DE (+49)</option>
+  <option value="+33">FR (+33)</option>
+  <option value="+65">SG (+65)</option>
+  <option value="+974">QA (+974)</option>
+</select>
+
+    <input type="text" id="phone" placeholder="Mobile Number">
+  </div>
+  <small class="error" id="phoneError"></small>
+
+  <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+  <small class="error" id="messageError"></small>
+
+  <button type="submit">Submit</button>
+
+</form>
+    </div>
+
+    <!-- INFO -->
+    <div class="card">
+      <h2>Get in Touch</h2>
+
+      <p><b>Email:</b> hr@transformx.tech</p>
+      <p><b>Location:</b> Hyderabad, India</p>
+      <p><b>Working Hours:</b> Mon–Fri, 9AM–6PM</p>
+
+      <hr style="border-color: var(--border);">
+
+      <p>We usually respond within 24 hours.</p>
+      <p style="margin-top: 10px; color: rgba(255,255,255,0.65);">
+  At <b>TransformX Technologies</b>, we are committed to delivering fast, reliable, and innovative technology solutions. 
+  Whether you're a startup or an enterprise, our team is here to help you build, scale, and transform your business.
+</p>
+
+<p style="margin-top: 10px; color: rgba(255,255,255,0.65);">
+  Have a project in mind? Let’s discuss and turn your ideas into reality.
+</p>
+
+<p style="margin-top: 12px; color: #E8311A; font-weight: 500;">
+  🚀 Ready to transform your business? Let’s get started today.
+</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  © 2026 TransformX Technologies Pvt. Ltd.
+</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let isValid = true;
+
+  // Inputs
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  // Error elements
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const phoneError = document.getElementById("phoneError");
+  const messageError = document.getElementById("messageError");
+
+  // Reset errors
+  nameError.textContent = "";
+  emailError.textContent = "";
+  phoneError.textContent = "";
+  messageError.textContent = "";
+
+  // Name validation
+  if (name === "") {
+    nameError.textContent = "Name is required";
+    isValid = false;
+  }
+
+  // Email validation
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    emailError.textContent = "Enter valid email";
+    isValid = false;
+  }
+
+  // Phone validation (India)
+  const phonePattern = /^[6-9]\d{9}$/;
+  if (!phonePattern.test(phone)) {
+    phoneError.textContent = "Enter valid 10-digit mobile number";
+    isValid = false;
+  }
+
+  // Message validation
+  if (message.length < 10) {
+    messageError.textContent = "Message must be at least 10 characters";
+    isValid = false;
+  }
+
+  // Final submit
+  if (isValid) {
+    alert("Form submitted successfully!");
+  }
+});
+
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const phoneInput = document.getElementById("phone");
+const messageInput = document.getElementById("message");
+
+// Error fields
+const nameError = document.getElementById("nameError");
+const emailError = document.getElementById("emailError");
+const phoneError = document.getElementById("phoneError");
+const messageError = document.getElementById("messageError");
+
+// NAME
+nameInput.addEventListener("input", () => {
+  if (nameInput.value.trim() === "") {
+    nameError.textContent = "Name is required";
+  } else {
+    nameError.textContent = "";
+  }
+});
+
+// EMAIL
+emailInput.addEventListener("input", () => {
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(emailInput.value.trim())) {
+    emailError.textContent = "Enter valid email";
+  } else {
+    emailError.textContent = "";
+  }
+});
+
+// PHONE (ONLY 10 DIGITS)
+phoneInput.addEventListener("input", () => {
+  // Allow only numbers
+  phoneInput.value = phoneInput.value.replace(/\D/g, '');
+
+  if (phoneInput.value.length !== 10) {
+    phoneError.textContent = "Mobile number must be 10 digits";
+  } else {
+    phoneError.textContent = "";
+  }
+});
+
+// MESSAGE
+messageInput.addEventListener("input", () => {
+  if (messageInput.value.trim().length < 10) {
+    messageError.textContent = "Minimum 10 characters required";
+  } else {
+    messageError.textContent = "";
+  }
+});
+
+// FINAL SUBMIT CHECK
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  if (
+    nameError.textContent ||
+    emailError.textContent ||
+    phoneError.textContent ||
+    messageError.textContent ||
+    nameInput.value.trim() === "" ||
+    emailInput.value.trim() === "" ||
+    phoneInput.value.trim() === "" ||
+    messageInput.value.trim() === ""
+  ) {
+    alert("Please fix errors before submitting");
+  } else {
+    alert("Form submitted successfully!");
+  }
+});
+
+</script>
+
+</body>
+</html>
