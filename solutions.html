@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions | TransformX Technologies</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Solutions Page Specific Styles */
+    .solution-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .solution-card:hover {
+      border-color: var(--red);
+      transform: translateY(-5px);
+      background: rgba(232, 49, 26, 0.02);
+    }
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 50px;
+    }
+    .industry-card {
+      position: relative;
+      height: 350px;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 30px;
+      text-decoration: none;
+    }
+    .industry-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      transition: transform 0.5s ease;
+    }
+    .industry-card:hover img { transform: scale(1.1); }
+    .industry-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,15,30,0.9), transparent);
+      z-index: 2;
+    }
+    .industry-content { position: relative; z-index: 3; color: white; }
+    
+    .expertise-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-top: 60px;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .expertise-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ✅ NAVBAR (EXACT FROM INDEX) -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-text">Transform<span>X Technologies</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="company.html">Company</a>
+      <div class="dropdown-menu">
+        <a href="company.html#about">About Us</a>
+        <a href="company.html#culture">Culture & Values</a>
+        <a href="company.html#careers">Careers</a>
+        <a href="company.html#partners">Partners</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <a href="services.html">Services</a>
+      <div class="dropdown-menu">
+        <a href="services.html#saas">SaaS Products</a>
+        <a href="services.html#hrms">HRMS</a>
+        <a href="services.html#iot">IOT</a>
+        <a href="services.html#qa">QA Automation</a>
+        <a href="services.html#cloud">Cloud Operations</a>
+        <a href="services.html#crm">CRM</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <a href="solutions.html" class="active">Solutions</a>
+      <div class="dropdown-menu">
+        <a href="solutions.html#all">All Solutions</a>
+        <a href="solutions.html#industries">By Industry</a>
+        <a href="solutions.html#expertise">Expertise</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <a href="insights.html">Insights</a>
+      <div class="dropdown-menu">
+        <a href="insights.html#blogs">Blog & Articles</a>
+        <a href="insights.html#case-studies">Case Studies</a>
+        <a href="insights.html#news">News</a>
+      </div>
+    </li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="min-height: 50vh;">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-2"></div>
+  </div>
+  <div class="hero-inner" style="grid-template-columns: 1fr; text-align: center;">
+    <div class="hero-content">
+      <div class="hero-badge">Solving Complex Challenges</div>
+      <h1 class="hero-title">Innovative <span class="accent">Solutions</span><br>For Every Venture</h1>
+      <p class="hero-desc" style="margin: 0 auto;">We combine deep domain knowledge with technical excellence to deliver outcome-driven solutions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 1. ALL SOLUTIONS SECTION -->
+<section id="all" class="section-inner" style="padding: 100px 20px;">
+  <div class="section-tag">Our Approach</div>
+  <h2 class="section-title">Comprehensive Tech Solutions</h2>
+  <div class="industry-grid">
+    <div class="solution-card fade-up">
+      <h3 style="color: white; margin-bottom: 15px;">Digital Transformation</h3>
+      <p style="color: var(--text);">Holistic strategies to modernize your business model, culture, and customer experience using cutting-edge tech.</p>
+    </div>
+    <div class="solution-card fade-up fade-up-delay-1">
+      <h3 style="color: white; margin-bottom: 15px;">Legacy Modernization</h3>
+      <p style="color: var(--text);">Upgrading outdated systems to secure, scalable, and modern architectures without losing critical data.</p>
+    </div>
+    <div class="solution-card fade-up fade-up-delay-2">
+      <h3 style="color: white; margin-bottom: 15px;">AI-Powered Automation</h3>
+      <p style="color: var(--text);">Integrating intelligent algorithms to automate complex workflows and increase operational ROI.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. BY INDUSTRY SECTION -->
+<section id="industries" style="background: var(--navy-mid); padding: 100px 20px;">
+  <div class="section-inner">
+    <div class="section-tag">Target Sectors</div>
+    <h2 class="section-title" style="color: white;">By Industry</h2>
+    <p class="section-desc">Tailored technology for the specific needs of diverse business environments.</p>
+    
+    <div class="industry-grid">
+      <!-- Manufacturing -->
+      <a href="#" class="industry-card fade-up">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600" alt="Manufacturing">
+        <div class="industry-overlay"></div>
+        <div class="industry-content">
+          <h3 style="font-family: 'Syne';">Manufacturing</h3>
+          <p style="font-size: 0.9rem; opacity: 0.8;">Smart factories & IoT supply chains.</p>
+        </div>
+      </a>
+      <!-- Retail -->
+      <a href="#" class="industry-card fade-up fade-up-delay-1">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=600" alt="Retail">
+        <div class="industry-overlay"></div>
+        <div class="industry-content">
+          <h3 style="font-family: 'Syne';">Retail & E-commerce</h3>
+          <p style="font-size: 0.9rem; opacity: 0.8;">Omnichannel growth & seamless checkout.</p>
+        </div>
+      </a>
+      <!-- Healthcare -->
+      <a href="#" class="industry-card fade-up fade-up-delay-2">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600" alt="Healthcare">
+        <div class="industry-overlay"></div>
+        <div class="industry-content">
+          <h3 style="font-family: 'Syne';">Healthcare</h3>
+          <p style="font-size: 0.9rem; opacity: 0.8;">Patient data management & secure TeleHealth.</p>
+        </div>
+      </a>
+      <!-- FinTech -->
+      <a href="#" class="industry-card fade-up fade-up-delay-3">
+        <img src="https://images.unsplash.com/photo-1550565118-3d1428df732f?auto=format&fit=crop&q=80&w=600" alt="FinTech">
+        <div class="industry-overlay"></div>
+        <div class="industry-content">
+          <h3 style="font-family: 'Syne';">FinTech & BFSI</h3>
+          <p style="font-size: 0.9rem; opacity: 0.8;">Fraud detection & secure payment gateways.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. EXPERTISE SECTION -->
+<section id="expertise" class="section-inner" style="padding: 100px 20px;">
+  <div class="section-tag">Our Core Skills</div>
+  <h2 class="section-title">Technological Expertise</h2>
+  
+  <div class="expertise-row">
+    <div class="fade-up">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" alt="Tech Stack" style="width: 100%; border-radius: 20px; border: 1px solid var(--border);">
+    </div>
+    <div class="fade-up fade-up-delay-1">
+      <h3 style="color: white; font-family: 'Syne'; margin-bottom: 20px;">Full-Stack Engineering</h3>
+      <p style="color: var(--text); line-height: 1.8;">Our engineers are experts in Python, React, Node.js, and Java, building robust backend architectures and sleek front-end interfaces that prioritize user experience.</p>
+      
+      <div style="margin-top: 30px;">
+        <h4 style="color: var(--red); margin-bottom: 10px;">Security First</h4>
+        <p style="color: var(--text); font-size: 0.95rem;">Cybersecurity is integrated into every line of code. We specialize in penetration testing and data sovereign storage.</p>
+      </div>
+      
+      <div style="margin-top: 20px;">
+        <h4 style="color: var(--red); margin-bottom: 10px;">Cloud Mastery</h4>
+        <p style="color: var(--text); font-size: 0.95rem;">Expertise in AWS Lambda, Azure DevOps, and Docker to ensure your application can handle millions of users.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #050810; margin-top: 0;">
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 TransformX Technologies Pvt. Ltd. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Exact Navbar Scrolled Logic
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Mobile Nav Toggle
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+
+  // Fade-up Observer
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { 
+        e.target.classList.add('visible'); 
+        observer.unobserve(e.target); 
+      }
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

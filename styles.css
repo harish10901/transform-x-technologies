@@ -1977,3 +1977,54 @@ body {
 
 */
 
+/* --- Services Page Layouts --- */
+.service-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.service-row.reverse {
+    direction: rtl; /* Flips the grid order */
+}
+
+.service-row.reverse .service-info {
+    direction: ltr; /* Resets text to read left-to-right */
+}
+
+.feature-list {
+    list-style: none;
+    margin-top: 25px;
+}
+
+.feature-list li {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 12px;
+    padding-left: 28px;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.feature-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: 800;
+}
+
+@media (max-width: 992px) {
+    .service-row, .service-row.reverse {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+        direction: ltr;
+    }
+    .service-img-wrapper {
+        height: 300px;
+    }
+    .feature-list li {
+        text-align: left;
+    }
+}

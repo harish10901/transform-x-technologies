@@ -1,231 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insights | TransformX Technologies</title>
-<!-- ✅ FAVICON ADD HERE -->
-<link rel="icon" type="image/png" href="images\favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights | TransformX Technologies</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Insights Specific Premium Styles */
+    .blog-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .blog-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--red);
+      background: rgba(232, 49, 26, 0.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .blog-img-box {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+    }
+    .blog-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .blog-card:hover .blog-img-box img {
+      transform: scale(1.1);
+    }
+    .blog-content {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      color: white;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .blog-meta {
+      font-size: 0.8rem;
+      color: var(--red);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+    .blog-desc {
+      color: var(--gray-400);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .read-more-btn {
+      margin-top: auto;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .read-more-btn:hover { color: var(--red); }
 
-<link rel="stylesheet" href="styles.css">
+    .case-card {
+        padding: 40px;
+        background: linear-gradient(145deg, rgba(20,30,60,0.4), rgba(10,15,30,0.8));
+    }
+    
+    .section-title-alt {
+        font-family: 'Syne';
+        font-size: 2.5rem;
+        margin-top: 80px;
+        margin-bottom: 40px;
+        color: white;
+        scroll-margin-top: 100px;
+    }
+  </style>
 </head>
-<body>
+<body class="insights-page">
 
-<!-- HEADER -->
+<!-- HEADER (Exact from index) -->
 <nav class="navbar" id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="1774862507089_TransformX_Technologies__logo.jpg" alt="TransformX Logo" onerror="this.style.display='none'">
+
     <span class="nav-logo-text">Transform<span>X Technologies</span></span>
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li class="nav-dropdown">
-      <a href="about.html">Company</a>
+      <a href="company.html">Company</a>
       <div class="dropdown-menu">
         <a href="company.html#about">About Us</a>
         <a href="company.html#culture">Culture & Values</a>
-        <a href="company.html#careers">Careers</a>
-        <a href="company.html#partners">Partners</a>
       </div>
     </li>
     <li class="nav-dropdown">
       <a href="services.html">Services</a>
       <div class="dropdown-menu">
-        <a href="services.html">All Services</a>
         <a href="services.html#saas">SaaS Products</a>
-        <a href="services.html#hrms">HRMS</a>
-        <a href="services.html#iot">IOT</a>
-        <a href="services.html#qa">QA Automation</a>
-        <a href="services.html#cloud">Cloud Operations</a>
-        <a href="services.html#crm">CRM</a>
+        <a href="services.html#ai">AI & Automation</a>
       </div>
     </li>
     <li class="nav-dropdown">
-      <a href="solutions.html">Solutions</a>
-      <div class="dropdown-menu">
-        <a href="solutions.html">All Solutions</a>
-        <a href="industries.html">By Industry</a>
-        <a href="expertise.html">Expertise</a>
-      </div>
-    </li>
+        <a href="solutions.html">Solutions</a>
+        <div class="dropdown-menu">
+          <a href="solutions.html">All Solutions</a>
+          <a href="solutions.html#industries">By Industry</a>
+        </div>
+      </li>
     <li class="nav-dropdown">
-      <a href="insights.html">Insights</a>
+      <a href="insights.html" class="active">Insights</a>
       <div class="dropdown-menu">
-        <a href="insights.html#blogs">Blog & Articles</a>
-        <a href="insights.html#case-studies">Case Studies</a>
-        <a href="insights.html#news">News</a>
+        <a href="#blogs">Blog & Articles</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#news">News</a>
       </div>
     </li>
     <li><a href="contact.html">Contact</a></li>
-    
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <a href="index.html">Home</a>
-  <a href="company.html#about">About Us</a>
-  <a href="services.html">Services</a>
-  <a href="solutions.html">Solutions</a>
-  <a href="industries.html">Industries</a>
-  <a href="expertise.html">Expertise</a>
-  <a href="insights.html">Insights</a>
-  <a href="insights.html#case-studies">Case Studies</a>
-  <a href="careers.html">Careers</a>
-  <a href="culture.html">Culture & Values</a>
-  <a href="partners.html">Partners</a>
-  <a href="news.html">News</a>
-  <a href="contact.html">Contact Us</a>
-  <a href="contact.html" class="mob-cta">Get Started →</a>
-</div>
+<!-- HERO -->
+<section class="hero" style="min-height: 40vh;">
+  <div class="hero-bg"><div class="hero-grid"></div><div class="hero-orb hero-orb-1"></div></div>
+  <div class="hero-inner" style="grid-template-columns: 1fr; text-align: center;">
+    <div class="hero-content">
+      <div class="hero-badge">Knowledge & Impact</div>
+      <h1 class="hero-title">Insights & <span class="accent">Innovation</span></h1>
+      <p class="hero-desc" style="margin: 0 auto;">Exploring the future of digital transformation and business intelligence.</p>
+    </div>
+  </div>
+</section>
 
-<!-- CONTENT -->
-<div class="section">
+<!-- MAIN CONTENT -->
+<div class="container" style="padding: 0 20px;">
+    
+    <!-- BLOGS SECTION -->
+    <h2 class="section-title-alt" id="blogs">Blogs & Articles</h2>
+    <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        
+        <!-- Blog 1 -->
+        <div class="blog-card fade-up">
+            <div class="blog-img-box"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Blog 1"></div>
+            <div class="blog-content">
+                <div class="blog-meta">TransformX | March 2026</div>
+                <h3 class="blog-title">What Is Digital Transformation</h3>
+                <p class="blog-desc">Businesses that embrace the right technology grow faster and outpace competition. We turn transformation into reality.</p>
+                <a href="blog1.html" class="read-more-btn">Read More →</a>
+            </div>
+        </div>
 
-<h1>Insights</h1>
-<p>Explore TransformX blogs, case studies, and industry updates.</p>
+        <!-- Blog 2 -->
+        <div class="blog-card fade-up fade-up-delay-1">
+            <div class="blog-img-box"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Blog 2"></div>
+            <div class="blog-content">
+                <div class="blog-meta">TransformX | March 2026</div>
+                <h3 class="blog-title">SaaS vs Custom Software</h3>
+                <p class="blog-desc">Choosing between SaaS and custom software defines your growth. Learn which approach works best for you.</p>
+                <a href="blog2.html" class="read-more-btn">Read More →</a>
+            </div>
+        </div>
 
-<!-- BLOGS -->
-<h2 class="section-title">Blogs & Articles</h2>
+        <!-- Blog 3 -->
+        <div class="blog-card fade-up fade-up-delay-2">
+            <div class="blog-img-box"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Blog 3"></div>
+            <div class="blog-content">
+                <div class="blog-meta">TransformX | March 2026</div>
+                <h3 class="blog-title">AI & Automation</h3>
+                <p class="blog-desc">AI is helping Indian businesses automate workflows and improve decision-making like never before.</p>
+                <a href="blog3.html" class="read-more-btn">Read More →</a>
+            </div>
+        </div>
 
-<div class="grid">
+        <!-- Blog 4 -->
+        <div class="blog-card fade-up">
+            <div class="blog-img-box"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="Blog 4"></div>
+            <div class="blog-content">
+                <div class="blog-meta">TransformX | March 2026</div>
+                <h3 class="blog-title">Cybersecurity in 2026</h3>
+                <p class="blog-desc">With DPDPA in effect, data security is no longer optional. Learn how to protect your assets.</p>
+                <a href="blog4.html" class="read-more-btn">Read More →</a>
+            </div>
+        </div>
 
-<div class="card">
+        <!-- Blog 5 -->
+        <div class="blog-card fade-up fade-up-delay-1">
+            <div class="blog-img-box"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978" alt="Blog 5"></div>
+            <div class="blog-content">
+                <div class="blog-meta">TransformX | March 2026</div>
+                <h3 class="blog-title">Startup Growth Guide</h3>
+                <p class="blog-desc">From MVP to scaling — learn how startups build software that grows with their business requirements.</p>
+                <a href="blog5.html" class="read-more-btn">Read More →</a>
+            </div>
+        </div>
 
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475" class="blog-banner">
+        <!-- Blog 6 -->
+        <div class="blog-card fade-up fade-up-delay-2">
+            <div class="blog-img-box"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Blog 6"></div>
+            <div class="blog-content">
+                <div class="blog-meta">TransformX | March 2026</div>
+                <h3 class="blog-title">India SaaS Ecosystem</h3>
+                <p class="blog-desc">India is becoming a global SaaS powerhouse. Discover what it means for the next generation of startups.</p>
+                <a href="blog6.html" class="read-more-btn">Read More →</a>
+            </div>
+        </div>
+    </div>
 
-<div class="blog-title">What Is Digital Transformation</div>
-<div class="meta">TransformX | March 2026</div>
-<div class="desc">
-Businesses that embrace the right technology grow faster, serve customers better, and outpace competition. TransformX helps companies turn transformation into reality.
-</div>
-<a href="blog1.html" class="read-more">Read More →</a>
-</div>
+    <!-- CASE STUDIES SECTION -->
+    <h2 class="section-title-alt" id="case-studies">Case Studies</h2>
+    <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+        <div class="blog-card case-card fade-up">
+            <div class="blog-meta">Success Story</div>
+            <h3 class="blog-title" style="font-size: 1.8rem;">E-commerce Automation</h3>
+            <p class="blog-desc">We helped a leading retail brand reduce operational costs by 40% through intelligent workflow automation and cloud scaling.</p>
+            <a href="#" class="btn-outline" style="align-self: flex-start; margin-top: 15px;">View Case Study</a>
+        </div>
+        <div class="blog-card case-card fade-up fade-up-delay-1">
+            <div class="blog-meta">AI Implementation</div>
+            <h3 class="blog-title" style="font-size: 1.8rem;">AI Customer Support</h3>
+            <p class="blog-desc">Improved response time by 70% using custom-trained AI chatbots for a Fintech giant in Hyderabad.</p>
+            <a href="#" class="btn-outline" style="align-self: flex-start; margin-top: 15px;">View Case Study</a>
+        </div>
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" class="blog-banner">
-<div class="blog-title">SaaS vs Custom Software</div>
-<div class="meta">TransformX | March 2026</div>
-<div class="desc">
-Choosing between SaaS and custom software can define your growth. Learn when each approach works best for your business.
-</div>
-<a href="blog2.html" class="read-more">Read More →</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" class="blog-banner">
-<div class="blog-title">AI & Automation</div>
-<div class="meta">TransformX | March 2026</div>
-<div class="desc">
-AI is helping Indian businesses automate workflows, reduce costs, and improve decision-making like never before.
-</div>
-<a href="blog3.html" class="read-more">Read More →</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="blog-banner">
-<div class="blog-title">Cybersecurity in 2026</div>
-<div class="meta">TransformX | March 2026</div>
-<div class="desc">
-With DPDPA in effect, data security is no longer optional. Learn how to protect your business.
-</div>
-<a href="blog4.html" class="read-more">Read More →</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1552664730-d307ca884978" class="blog-banner">
-<div class="blog-title">Startup Growth Guide</div>
-<div class="meta">TransformX | March 2026</div>
-<div class="desc">
-From MVP to scaling — learn how startups build software that grows with their business.
-</div>
-<a href="blog5.html" class="read-more">Read More →</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" class="blog-banner">
-<div class="blog-title">India SaaS Ecosystem</div>
-<div class="meta">TransformX | March 2026</div>
-<div class="desc">
-India is becoming a SaaS powerhouse. Discover what it means for your business.
-</div>
-<a href="blog6.html" class="read-more">Read More →</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" class="blog-banner">
-<div class="blog-title">Client Partnerships</div>
-<div class="meta">TransformX | March 2026</div>
-<div class="desc">
-A true technology partnership goes beyond delivery — it builds long-term success.
-</div>
-<a href="blog7.html" class="read-more">Read More →</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1506765515384-028b60a970df" class="blog-banner">
-<div class="blog-title">India’s Digital Future</div>
-<div class="meta">TransformX | March 2026</div>
-<div class="desc">
-Explore TransformX vision for India’s next decade of digital transformation.
-</div>
-<a href="blog8.html" class="read-more">Read More →</a>
-</div>
-
-</div>
-
-<!-- CASE STUDIES -->
-<h2 class="section-title" id="case-studies">Case Studies</h2>
-
-<div class="grid">
-<div class="card">
-<div class="blog-title">E-commerce Automation</div>
-<div class="desc">Reduced operational costs by 40% using automation.</div>
-</div>
-
-<div class="card">
-<div class="blog-title">AI Customer Support</div>
-<div class="desc">Improved response time by 70% using AI chatbots.</div>
-</div>
-</div>
-
-<!-- NEWS -->
-<h2 class="section-title" id="news">News</h2>
-
-<div class="grid">
-<div class="card">
-<div class="blog-title">TransformX Expands AI Services</div>
-<div class="desc">Launching enterprise-grade AI solutions.</div>
-</div>
-
-<div class="card">
-<div class="blog-title">New SaaS Platform Launch</div>
-<div class="desc">Introducing scalable SaaS products for businesses.</div>
-</div>
-</div>
-
+    <!-- NEWS SECTION -->
+    <h2 class="section-title-alt" id="news">Latest News</h2>
+    <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 100px;">
+        <div class="blog-card fade-up" style="padding: 30px; flex-direction: row; gap: 20px; align-items: center;">
+            <div style="font-size: 3rem;">🚀</div>
+            <div>
+                <h3 class="blog-title" style="margin:0;">TransformX Expands AI Services</h3>
+                <p class="blog-desc" style="margin:5px 0 0;">Launching enterprise-grade AI solutions for mid-sized ventures.</p>
+            </div>
+        </div>
+        <div class="blog-card fade-up fade-up-delay-1" style="padding: 30px; flex-direction: row; gap: 20px; align-items: center;">
+            <div style="font-size: 3rem;">🌐</div>
+            <div>
+                <h3 class="blog-title" style="margin:0;">New SaaS Platform Launch</h3>
+                <p class="blog-desc" style="margin:5px 0 0;">Introducing scalable SaaS products for logistics management.</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- FOOTER -->
-<div class="footer">
-© 2026 TransformX Technologies Pvt. Ltd. All rights reserved.
-</div>
+<footer style="background: #050810;">
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 TransformX Technologies Pvt. Ltd. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
 
 <script>
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 30);
-});
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 30); });
 
-const navToggle = document.getElementById('navToggle');
-const mobileNav = document.getElementById('mobileNav');
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', () => { mobileNav.classList.toggle('open'); });
 
-navToggle.addEventListener('click', () => {
-  mobileNav.classList.toggle('open');
-});
+  // Fade up logic
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
 </script>
 
 </body>
