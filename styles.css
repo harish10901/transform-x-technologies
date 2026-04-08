@@ -2028,3 +2028,150 @@ body {
         text-align: left;
     }
 }
+
+
+
+#bot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999; /* Ensure it's on top of everything */
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#bot-icon-wrapper {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ask-me-bubble {
+    background: #007bff;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    animation: bounce 2s infinite;
+}
+
+#bot-icon img {
+    width: 65px;
+    height: 65px;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#chat-window {
+    width: 320px;
+    height: 450px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: absolute;
+    bottom: 90px; /* Positions window above the robot */
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#chat-header {
+    background: #007bff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+#close-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bot-msg, .user-msg {
+    padding: 10px 14px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 80%;
+}
+
+.bot-msg { background: #e9e9eb; align-self: flex-start; color: #333; }
+.user-msg { background: #007bff; color: white; align-self: flex-end; }
+
+#chat-footer {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 8px;
+    background: white;
+}
+
+#user-input {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    
+    /* FIX: Text color must be black/dark grey */
+    color: #000000 !important; 
+    /* FIX: Background must be white */
+    background-color: #ffffff !important; 
+    
+    position: relative;
+    z-index: 10001;
+}
+
+/* Placeholder color ni kuda grey ga set chesthunna */
+#user-input::placeholder {
+    color: #888888;
+}
+
+#send-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}

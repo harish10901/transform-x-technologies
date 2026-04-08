@@ -235,6 +235,31 @@
   </div>
 </section>
 
+<!-- Chatbot Container -->
+<!-- Bot Container -->
+<div id="bot-container">
+    <div id="chat-window" class="hidden">
+        <div id="chat-header">
+            <span>TransformX Assistant</span>
+            <button onclick="toggleChat()" id="close-btn">&times;</button>
+        </div>
+        <div id="chat-body">
+            <div class="bot-msg">Hi! I am TransformX Bot. How can I assist you today?</div>
+        </div>
+        <div id="chat-footer">
+            <!-- Text color forced to Black here -->
+            <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" style="color: black !important; background-color: white !important;">
+            <button onclick="sendMessage()" id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <div id="bot-icon-wrapper" onclick="toggleChat()">
+        <div class="ask-me-bubble">Ask Me</div>
+        <div id="bot-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Bot">
+        </div>
+    </div>
+</div>
 <!-- FOOTER -->
 <footer style="background: #050810; margin-top: 0;">
   <div class="footer-inner">
@@ -269,6 +294,193 @@
     });
   }, { threshold: 0.1 });
   fadeEls.forEach(el => observer.observe(el));
+
+
+
+  function toggleChat() {
+    const chatWindow = document.getElementById('chat-window');
+    chatWindow.classList.toggle('hidden');
+    
+    // Focus input when opened
+    if (!chatWindow.classList.contains('hidden')) {
+        document.getElementById('user-input').focus();
+    }
+}
+
+// Allow Enter key to send message
+document.getElementById('user-input').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        sendMessage();
+    }
+});
+
+function sendMessage() {
+    const input = document.getElementById('user-input');
+    const message = input.value.trim();
+    
+    if (message === "") return;
+
+    appendMessage(message, 'user-msg');
+    input.value = "";
+
+    setTimeout(() => {
+        const response = getBotResponse(message.toLowerCase());
+        appendMessage(response, 'bot-msg');
+    }, 600);
+}
+
+function appendMessage(text, className) {
+    const chatBody = document.getElementById('chat-body');
+    const msgDiv = document.createElement('div');
+    msgDiv.className = className;
+    msgDiv.innerText = text;
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function getBotResponse(input) {
+    const msg = input.toLowerCase(); // User adigina text ni lowercase loki marchali accuracy kosam
+
+    // --- 1. GENERAL CONVERSATIONS ---
+    if (msg.includes("hello") || msg.includes("hi") || msg.includes("hey")) {
+        return "Hello! I am Rubix. Welcome to TransformX Technologies. How can I help you today?";
+    }
+    if (msg.includes("your name") || msg.includes("who are you")) {
+        return "My name is Rubix, your friendly TransformX virtual assistant!";
+    }
+    if (msg.includes("how are you")) {
+        return "I'm doing great! Ready to solve your IT problems. How about you?";
+    }
+    if (msg.includes("thinnava") || msg.includes("had lunch") || msg.includes("had dinner") || msg.includes("eat")) {
+        return "Haha, I am a robot! I only consume data and electricity. But thank you for your concern! 😊";
+    }
+
+    // --- 2. COMPANY & PRICING ---
+    if (msg.includes("about")) {
+        return "TransformX Technologies is a leading IT firm specializing in digital transformation and innovative tech solutions.";
+    }
+    if (msg.includes("price") || msg.includes("cost")) {
+        return "Pricing depends on the project scope. Please leave your email or contact us for a custom quote.";
+    }
+
+    // --- 3. GENERAL IT SUPPORT & CONTACT ---
+    if (msg.includes("services")) {
+        return "We provide hardware troubleshooting, software installation, network setup, cybersecurity, and cloud solutions.";
+    }
+    if (msg.includes("contact") || msg.includes("reach")) {
+        return "You can reach us at contact@transformx.com, by phone, or through our support ticket system.";
+    }
+    if (msg.includes("hours") || msg.includes("time")) {
+        return "Our support hours are 9 AM – 6 PM, Monday to Friday. Emergency support is available 24/7.";
+    }
+    if (msg.includes("quickly") || msg.includes("resolved") || msg.includes("how long")) {
+        return "Most issues are solved within 24–48 hours, depending on the complexity.";
+    }
+    if (msg.includes("remote")) {
+        return "Yes, we can securely access your system remotely to troubleshoot and fix issues.";
+    }
+
+    // --- 4. HARDWARE & DEVICES ---
+    if (msg.includes("not start") || msg.includes("won't start")) {
+        return "Check power connections first. If it still doesn't start, please contact our IT support.";
+    }
+    if (msg.includes("printer")) {
+        return "Yes, we help with driver installation, network connectivity, and troubleshooting printer errors.";
+    }
+    if (msg.includes("repair") || msg.includes("laptop") || msg.includes("desktop")) {
+        return "Yes, we handle hardware repairs, upgrades, and replacements for all office devices.";
+    }
+    if (msg.includes("spare") || msg.includes("loaner")) {
+        return "Yes, we offer loaner devices if your repair is going to take a long time.";
+    }
+
+    // --- 5. SOFTWARE & APPLICATIONS ---
+    if (msg.includes("install software")) {
+        return "Yes, we install licensed software and ensure it's compatible with your system.";
+    }
+    if (msg.includes("crash") || msg.includes("application keeps crashing")) {
+        return "Try restarting the app and checking for updates. If the issue persists, contact support.";
+    }
+    if (msg.includes("recover") || msg.includes("lost files")) {
+        return "We can attempt to recover lost files depending on backup availability and disk condition.";
+    }
+
+    // --- 6. NETWORKING & CONNECTIVITY ---
+    if (msg.includes("internet") || msg.includes("slow")) {
+        return "Restart your router and check for background downloads. Contact us if it doesn't improve.";
+    }
+    if (msg.includes("wifi") || msg.includes("wi-fi")) {
+        return "Yes, we design and install secure wireless networks for office environments.";
+    }
+    if (msg.includes("vpn")) {
+        return "To connect, use the provided VPN client and enter your company login credentials.";
+    }
+    if (msg.includes("shared drive") || msg.includes("access files")) {
+        return "Ensure you're connected to the network and have the necessary permissions assigned.";
+    }
+
+    // --- 7. CYBERSECURITY ---
+    if (msg.includes("virus") || msg.includes("protect")) {
+        return "Keep your antivirus updated, avoid suspicious links, and run regular scans.";
+    }
+    if (msg.includes("phishing") || msg.includes("suspicious email")) {
+        return "Do not click any links! Report the email to IT immediately.";
+    }
+    if (msg.includes("password") && (msg.includes("change") || msg.includes("often"))) {
+        return "We recommend changing your password every 60–90 days for maximum security.";
+    }
+
+    // --- 8. CLOUD & STORAGE ---
+    if (msg.includes("cloud storage")) {
+        return "Yes, we provide secure cloud storage with automated backup options.";
+    }
+    if (msg.includes("migrate")) {
+        return "Yes, we handle secure data migration to the cloud with minimal downtime.";
+    }
+
+    // --- 9. ACCOUNTS & ACCESS ---
+    if (msg.includes("forgot") && msg.includes("password")) {
+        return "Use the 'Forgot Password' option on the portal or contact support for a manual reset.";
+    }
+    if (msg.includes("2fa") || msg.includes("authentication")) {
+        return "Follow our internal guide or contact IT to set up two-factor authentication.";
+    }
+    if (msg.includes("email setup")) {
+        return "Yes, we configure email accounts on both desktop and mobile devices.";
+    }
+
+    // --- 10. POLICIES & COMPLIANCE ---
+    if (msg.includes("privacy") || msg.includes("gdpr")) {
+        return "Yes, we strictly comply with GDPR, HIPAA, and other relevant data standards.";
+    }
+    if (msg.includes("training") || msg.includes("awareness")) {
+        return "Yes, we offer regular cybersecurity awareness training for all staff members.";
+    }
+
+    // --- 11. ADVANCED SERVICES ---
+    if (msg.includes("consulting")) {
+        return "Yes, we provide IT consulting to optimize your infrastructure and workflows.";
+    }
+    if (msg.includes("digital transformation")) {
+        return "Yes, we guide organizations in adopting modern technologies for business growth.";
+    }
+
+    // --- 12. TROUBLESHOOTING BASICS ---
+    if (msg.includes("slow system") || msg.includes("running slow")) {
+        return "Try restarting your device, clearing cache, and checking for pending updates.";
+    }
+    if (msg.includes("frozen") || msg.includes("screen")) {
+        return "Press Ctrl+Alt+Del (Windows) or Force Quit (Mac) to restart or close frozen apps.";
+    }
+    if (msg.includes("mobile") || msg.includes("phone")) {
+        return "Yes, we support smartphones and tablets for business use cases.";
+    }
+
+    // --- DEFAULT RESPONSE ---
+    return "That's a great question! I'm not quite sure about that specific detail. Let me connect you with an expert, or you can email contact@transformx.com.";
+}
+
+
 </script>
 
 </body>
