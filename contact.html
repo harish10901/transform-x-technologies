@@ -1,21 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | TransformX Technologies</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="styles.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | TransformX Technologies</title>
-<!-- ✅ FAVICON ADD HERE -->
-<link rel="icon" type="image/png" href="images\favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ADVANCED CONTACT STYLES */
+    .contact-main-container {
+      padding: 140px 20px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
+    .contact-glass-wrapper {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      box-shadow: 0 50px 100px rgba(0,0,0,0.4);
+    }
+
+    /* FORM SIDE (LEFT) */
+    .form-side {
+      border: 1px solid rgba(232, 49, 26, 0.2);
+      border-radius: 24px;
+      padding: 40px;
+      background: rgba(10, 15, 30, 0.4);
+    }
+
+    .form-title { color: var(--red); font-family: 'Syne'; margin-bottom: 25px; font-size: 1.8rem; }
+    
+    .input-box {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 15px 20px;
+      color: white;
+      margin-bottom: 20px;
+      font-family: 'DM Sans', sans-serif;
+      transition: 0.3s;
+    }
+    .input-box:focus { border-color: var(--red); outline: none; background: rgba(255,255,255,0.08); }
+
+    /* Phone Input Group */
+    .phone-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center; /* Vertical centering */
+}
+
+/* Base styles for both elements */
+.country-select, 
+.mobile-input {
+    height: 50px !important;      /* Forces exact same height */
+    box-sizing: border-box !important; /* Includes border in height calculation */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 0 15px;
+    margin: 0 !important;        /* Removes hidden browser margins */
+    outline: none;
+}
+
+/* Specific Dropdown styles */
+.country-select {
+    width: 100px;
+    flex-shrink: 0;
+    cursor: pointer;
+    appearance: none; /* Removes default arrow */
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* Specific Input styles */
+.mobile-input {
+    flex-grow: 1; /* Takes up remaining width */
+}
+
+/* Focus effect for both */
+.country-select:focus, 
+.mobile-input:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 10px rgba(232, 49, 26, 0.1);
+}
+
+    /* INFO SIDE (RIGHT) */
+    .info-side {
+      background: rgba(255,255,255,0.02);
+      border-radius: 24px;
+      padding: 45px;
+      border: 1px solid var(--border);
+    }
+
+    .info-title { color: var(--red); font-family: 'Syne'; margin-bottom: 25px; font-size: 1.8rem; }
+    
+    .info-detail { margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6; }
+    .info-detail strong { color: white; display: inline-block; width: 100px; }
+    .info-detail span { color: rgba(255,255,255,0.7); }
+
+    .cta-text { color: var(--red); font-weight: 700; text-decoration: none; margin-top: 30px; display: inline-block; }
+    .cta-text:hover { text-decoration: underline; }
+
+    @media (max-width: 992px) {
+      .contact-glass-wrapper { grid-template-columns: 1fr; padding: 30px; }
+    }
+/* Required Star Style */
+.required-star {
+    color: var(--red);
+    margin-left: 2px;
+}
+
+.form-field {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Error Text Style */
+.error-text {
+    color: #ff4d4d;
+    font-size: 11px;
+    display: none; /* Hidden by default */
+    margin-top: -15px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* Red border on error */
+.input-error {
+    border-color: #ff4d4d !important;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.1) !important;
+}
+
+/* Fixed Phone Group Alignment (Same as before but cleaned up) */
+.phone-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.country-select, .mobile-input {
+    height: 50px !important;
+    box-sizing: border-box !important;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    margin: 0 !important;
+}
+
+.country-select { width: 100px; flex-shrink: 0; padding: 0 10px; cursor: pointer; }
+.mobile-input { flex-grow: 1; padding: 0 15px; }
+
+  </style>
 </head>
+<body style="background: var(--navy);">
 
-<body>
-
-<div class="bg-grid"></div>
-<div class="bg-glow"></div>
-
-<!-- ===== HEADER ===== -->
+<!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <a href="index.html" class="nav-logo">
     <img src="1774862507089_TransformX_Technologies__logo.jpg" alt="TransformX Logo" onerror="this.style.display='none'">
@@ -36,7 +195,6 @@
       <a href="services.html">Services</a>
       <div class="dropdown-menu">
         <a href="services.html">All Services</a>
-        <a href="services.html">All Services</a>
         <a href="services.html#saas">SaaS Products</a>
         <a href="services.html#hrms">HRMS</a>
         <a href="services.html#iot">IOT</a>
@@ -49,16 +207,16 @@
       <a href="solutions.html">Solutions</a>
       <div class="dropdown-menu">
         <a href="solutions.html">All Solutions</a>
-        <a href="industries.html">By Industry</a>
-        <a href="expertise.html">Expertise</a>
+        <a href="solutions.html#industries">By Industry</a>
+        <a href="solutions.html#expertise">Expertise</a>
       </div>
     </li>
     <li class="nav-dropdown">
       <a href="insights.html">Insights</a>
       <div class="dropdown-menu">
-        <a href="insights.html">Blog & Articles</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="news.html">News</a>
+        <a href="insights.html#blogs">Blog & Articles</a>
+        <a href="insights.html#case-studies">Case Studies</a>
+        <a href="insights.html#news">News</a>
       </div>
     </li>
         <li class="nav-dropdown">
@@ -69,222 +227,184 @@
         <a href="terms.html#refund">Refund Policy</a>
       </div>
     </li>
+    <li><a href="contact.html">                   </a></li>
     
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
-
-<!-- ===== CONTENT ===== -->
-<div class="container">
-
-  <h1>Contact Us</h1>
-  <p>Let’s build something amazing together.</p>
-
-  <div class="contact-grid">
-
-    <!-- FORM -->
-    <div class="card">
-  <h2>Send a Message</h2>
-
-  <form id="contactForm">
-
-  <input type="text" id="name" placeholder="Your Name">
-  <small class="error" id="nameError"></small>
-
-  <input type="email" id="email" placeholder="Email">
-  <small class="error" id="emailError"></small>
-
-  <!-- PHONE WITH COUNTRY CODE -->
-  <div class="phone-group">
-<select id="countryCode" class="country-select">
-  <option value="+91">IN (+91)</option>
-  <option value="+1">US (+1)</option>
-  <option value="+44">UK (+44)</option>
-  <option value="+61">AU (+61)</option>
-  <option value="+971">UAE (+971)</option>
-  <option value="+81">JP (+81)</option>
-  <option value="+49">DE (+49)</option>
-  <option value="+33">FR (+33)</option>
-  <option value="+65">SG (+65)</option>
-  <option value="+974">QA (+974)</option>
-</select>
-
-    <input type="text" id="phone" placeholder="Mobile Number">
-  </div>
-  <small class="error" id="phoneError"></small>
-
-  <textarea id="message" rows="5" placeholder="Your Message"></textarea>
-  <small class="error" id="messageError"></small>
-
-  <button type="submit">Submit</button>
-
-</form>
-    </div>
-
-    <!-- INFO -->
-    <div class="card">
-      <h2>Get in Touch</h2>
-
-      <p><b>Email:</b> hr@transformx.tech</p>
-      <p><b>Location:</b> Hyderabad, Visakhapatnam, India</p>
-      <p><b>Working Hours:</b> Mon–Fri, 9AM–6PM</p>
-
-      <hr style="border-color: var(--border);">
-
-      <p>We usually respond within 24 hours.</p>
-      <p style="margin-top: 10px; color: rgba(255,255,255,0.65);">
-  At <b>TransformX Technologies</b>, we are committed to delivering fast, reliable, and innovative technology solutions. 
-  Whether you're a startup or an enterprise, our team is here to help you build, scale, and transform your business.
-</p>
-
-<p style="margin-top: 10px; color: rgba(255,255,255,0.65);">
-  Have a project in mind? Let’s discuss and turn your ideas into reality.
-</p>
-
-<p style="margin-top: 12px; color: #E8311A; font-weight: 500;">
-  🚀 Ready to transform your business? Let’s get started today.
-</p>
-
-    </div>
-
-  </div>
-
+<!-- GRID BACKGROUND -->
+<div class="hero-bg" style="position: fixed; z-index: -1;">
+    <div class="hero-grid"></div>
 </div>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  © 2026 TransformX Technologies Pvt. Ltd.
-</footer>
+<div class="contact-main-container">
+    <div class="fade-up">
+        <h1 style="color: white; font-family: 'Syne'; font-size: 3rem; margin-bottom: 5px;">Contact Us</h1>
+        <p style="color: rgba(255,255,255,0.5); margin-bottom: 40px;">Let's build something amazing together.</p>
+    </div>
+
+    <div class="contact-glass-wrapper fade-up fade-up-delay-1">
+        
+        <!-- LEFT: FORM CARD -->
+<div class="form-side">
+    <h2 class="form-title">Send a Message</h2>
+    
+    <form id="contactForm" novalidate>
+        <!-- Name Field -->
+        <div class="form-field">
+            <label class="form-label" style="color: rgba(255,255,255,0.7); font-size: 0.8rem; margin-bottom: 5px; display: block;">
+                Your Name <span class="required-star">*</span>
+            </label>
+            <input type="text" id="name" class="input-box" placeholder="Your Name" style="margin-bottom: 5px;">
+            <span class="error-text" id="nameError">Please enter your name.</span>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-field">
+            <label class="form-label" style="color: rgba(255,255,255,0.7); font-size: 0.8rem; margin-bottom: 5px; display: block;">
+                Email <span class="required-star">*</span>
+            </label>
+            <input type="email" id="email" class="input-box" placeholder="Email" style="margin-bottom: 5px;">
+            <span class="error-text" id="emailError">Please enter a valid email address.</span>
+        </div>
+        
+        <!-- Mobile Field -->
+        <div class="form-field">
+            <label class="form-label" style="color: rgba(255,255,255,0.7); font-size: 0.8rem; margin-bottom: 5px; display: block;">
+                Mobile Number <span class="required-star">*</span>
+            </label>
+            <div class="phone-group">
+                <select class="country-select">
+                    <option>IN (+91)</option>
+                    <option>US (+1)</option>
+                </select>
+                <input type="text" id="mobile" class="mobile-input" placeholder="Mobile Number" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="10">
+            </div>
+            <span class="error-text" id="mobileError">Please enter a valid 10-digit number.</span>
+        </div>
+
+        <!-- Message Field -->
+        <div class="form-field">
+            <label class="form-label" style="color: rgba(255,255,255,0.7); font-size: 0.8rem; margin-bottom: 5px; display: block;">Your Message</label>
+            <textarea id="message" class="input-box" rows="4" placeholder="Your Message"></textarea>
+        </div>
+        
+        <button type="submit" class="btn-primary" style="width: 140px; padding: 12px; font-weight: 700; margin-top: 10px;">Submit</button>
+    </form>
+</div>
+
+        <!-- RIGHT: INFO CARD -->
+        <div class="info-side">
+            <h2 class="info-title">Get in Touch</h2>
+            
+            <div class="info-detail"><strong>Email:</strong> <span>hr@transformx.tech</span></div>
+            <div class="info-detail"><strong>Location:</strong> <span>Hyderabad, Visakhapatnam, India</span></div>
+            <div class="info-detail"><strong>Working Hours:</strong> <span>Mon–Fri, 9AM–6PM</span></div>
+            
+            <hr style="border: 0; border-top: 1px solid var(--border); margin: 30px 0;">
+
+            <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 20px;">
+                We usually respond within 24 hours.
+            </p>
+
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.8;">
+                At <strong>TransformX Technologies</strong>, we are committed to delivering fast, reliable, and innovative technology solutions. Whether you're a startup or an enterprise, our team is here to help you build, scale, and transform your business.
+            </p>
+
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.8; margin-top: 20px;">
+                Have a project in mind? Let's discuss and turn your ideas into reality.
+            </p>
+
+            <a href="#" class="cta-text">🚀 Ready to transform your business? Let's get started today.</a>
+        </div>
+    </div>
+</div>
 
 <script>
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 30); });
 
-  let isValid = true;
+    const navToggle = document.getElementById('navToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    if(navToggle) navToggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
 
-  // Inputs
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const message = document.getElementById("message").value.trim();
+    // Scroll Animation
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
 
-  // Error elements
-  const nameError = document.getElementById("nameError");
-  const emailError = document.getElementById("emailError");
-  const phoneError = document.getElementById("phoneError");
-  const messageError = document.getElementById("messageError");
 
-  // Reset errors
-  nameError.textContent = "";
-  emailError.textContent = "";
-  phoneError.textContent = "";
-  messageError.textContent = "";
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent page reload
 
-  // Name validation
-  if (name === "") {
-    nameError.textContent = "Name is required";
-    isValid = false;
-  }
+    let isValid = true;
 
-  // Email validation
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email)) {
-    emailError.textContent = "Enter valid email";
-    isValid = false;
-  }
+    // Elements
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const mobile = document.getElementById('mobile');
 
-  // Phone validation (India)
-  const phonePattern = /^[6-9]\d{9}$/;
-  if (!phonePattern.test(phone)) {
-    phoneError.textContent = "Enter valid 10-digit mobile number";
-    isValid = false;
-  }
+    // Regex Patterns
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^[0-9]{10}$/; // Validates exactly 10 digits
 
-  // Message validation
-  if (message.length < 10) {
-    messageError.textContent = "Message must be at least 10 characters";
-    isValid = false;
-  }
+    // 1. Name Validation
+    if (name.value.trim().length < 2) {
+        showError(name, 'nameError');
+        isValid = false;
+    } else {
+        hideError(name, 'nameError');
+    }
 
-  // Final submit
-  if (isValid) {
-    alert("Form submitted successfully!");
-  }
+    // 2. Email Validation
+    if (!emailPattern.test(email.value)) {
+        showError(email, 'emailError');
+        isValid = false;
+    } else {
+        hideError(email, 'emailError');
+    }
+
+    // 3. Mobile Validation
+    if (!phonePattern.test(mobile.value)) {
+        showError(mobile, 'mobileError');
+        isValid = false;
+    } else {
+        hideError(mobile, 'mobileError');
+    }
+
+    // FINAL SUBMISSION
+    if (isValid) {
+        const btn = this.querySelector('button');
+        btn.innerText = "Sending...";
+        
+        setTimeout(() => {
+            // Success!
+            document.getElementById('successToast').style.display = "block";
+            btn.innerText = "Sent!";
+            this.reset();
+            
+            setTimeout(() => {
+                document.getElementById('successToast').style.display = "none";
+                btn.innerText = "Submit";
+            }, 3000);
+        }, 1500);
+    }
 });
 
-const nameInput = document.getElementById("name");
-const emailInput = document.getElementById("email");
-const phoneInput = document.getElementById("phone");
-const messageInput = document.getElementById("message");
+// Helper Functions
+function showError(input, errorId) {
+    input.classList.add('input-error');
+    document.getElementById(errorId).style.display = "block";
+}
 
-// Error fields
-const nameError = document.getElementById("nameError");
-const emailError = document.getElementById("emailError");
-const phoneError = document.getElementById("phoneError");
-const messageError = document.getElementById("messageError");
-
-// NAME
-nameInput.addEventListener("input", () => {
-  if (nameInput.value.trim() === "") {
-    nameError.textContent = "Name is required";
-  } else {
-    nameError.textContent = "";
-  }
-});
-
-// EMAIL
-emailInput.addEventListener("input", () => {
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(emailInput.value.trim())) {
-    emailError.textContent = "Enter valid email";
-  } else {
-    emailError.textContent = "";
-  }
-});
-
-// PHONE (ONLY 10 DIGITS)
-phoneInput.addEventListener("input", () => {
-  // Allow only numbers
-  phoneInput.value = phoneInput.value.replace(/\D/g, '');
-
-  if (phoneInput.value.length !== 10) {
-    phoneError.textContent = "Mobile number must be 10 digits";
-  } else {
-    phoneError.textContent = "";
-  }
-});
-
-// MESSAGE
-messageInput.addEventListener("input", () => {
-  if (messageInput.value.trim().length < 10) {
-    messageError.textContent = "Minimum 10 characters required";
-  } else {
-    messageError.textContent = "";
-  }
-});
-
-// FINAL SUBMIT CHECK
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  if (
-    nameError.textContent ||
-    emailError.textContent ||
-    phoneError.textContent ||
-    messageError.textContent ||
-    nameInput.value.trim() === "" ||
-    emailInput.value.trim() === "" ||
-    phoneInput.value.trim() === "" ||
-    messageInput.value.trim() === ""
-  ) {
-    alert("Please fix errors before submitting");
-  } else {
-    alert("Form submitted successfully!");
-  }
-});
-
+function hideError(input, errorId) {
+    input.classList.remove('input-error');
+    document.getElementById(errorId).style.display = "none";
+}
 </script>
 
 </body>
