@@ -350,7 +350,7 @@
   .mobile-nav .mob-cta { background: var(--red); color: var(--white) !important; text-align: center; margin-top: 0.5rem; font-weight: 600; }
 
   /* RESPONSIVE */
-  /*@media (max-width: 1024px) {
+  @media (max-width: 1024px) {
     .hero-inner { grid-template-columns: 1fr; }
     .hero-visual { display: none; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -375,8 +375,6 @@
     .btn-primary, .btn-outline { width: 100%; justify-content: center; }
     .cta-actions { flex-direction: column; align-items: center; }
   }
-*/
-
 
 
   /* HERO ENTRY ANIMATION */
@@ -1246,7 +1244,7 @@ html {
   .footer-legal a { font-size: 0.8rem; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
   .footer-legal a:hover { color: rgba(255,255,255,0.6); }
   
-  /*@media (max-width: 768px) {
+  @media (max-width: 768px) {
     .nav-links { display: none; }
     .nav-toggle { display: flex; }
     section { padding: 4rem 1.25rem; }
@@ -1259,7 +1257,7 @@ html {
     .hero-actions { flex-direction: column; }
     .btn-primary, .btn-outline { width: 100%; justify-content: center; }
     .cta-actions { flex-direction: column; align-items: center; }
-  }*/
+  }
 
 /* ===== insights ===== */
 
@@ -2016,7 +2014,7 @@ body {
     font-weight: 800;
 }
 
-/*@media (max-width: 992px) {
+@media (max-width: 992px) {
     .service-row, .service-row.reverse {
         grid-template-columns: 1fr;
         text-align: center;
@@ -2029,9 +2027,7 @@ body {
     .feature-list li {
         text-align: left;
     }
-}*/
-
-
+}
 
 
 
@@ -2179,21 +2175,3 @@ body {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
