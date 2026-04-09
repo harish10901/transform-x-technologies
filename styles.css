@@ -2175,3 +2175,202 @@ body {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== MOBILE IMPROVEMENTS ===== */
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .nav-logo-text {
+    font-size: 0.95rem;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 90px 1rem 40px;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    margin: 0 auto 1.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+  }
+
+  /* TEXT CLOUD FIX */
+  .text-cloud {
+    width: 250px;
+    height: 250px;
+  }
+
+  .text-cloud span {
+    font-size: 12px;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 3rem 1rem;
+  }
+
+  /* SERVICES */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+  }
+
+  /* STATS */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-num {
+    font-size: 2rem;
+  }
+
+  /* INDUSTRIES */
+  .industries-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .industry-card {
+    padding: 1rem;
+  }
+
+  /* WHY SECTION */
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* INSIGHTS */
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CTA */
+  .cta-title {
+    font-size: 1.8rem;
+  }
+
+  .cta-desc {
+    font-size: 0.95rem;
+  }
+
+  /* FOOTER */
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 0 1rem;
+    height: 64px;
+  }
+
+  .nav-logo {
+    gap: 6px;
+  }
+
+  .nav-logo img {
+    height: 28px;
+    width: 28px;
+  }
+
+  .nav-logo-text {
+    font-size: 0.85rem;
+    line-height: 1.1;
+  }
+
+  /* IMPORTANT */
+  .nav-links {
+    display: none; /* already but ensure */
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+}
+
+.nav-logo-text {
+  white-space: normal;   /* allow wrap */
+}
+
+.navbar {
+  overflow: hidden;
+}
+
+.hero {
+  padding-top: 110px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .nav-logo-text span {
+    display: block;   /* TransformX next line */
+    font-size: 0.8rem;
+  }
+
+}
