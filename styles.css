@@ -2032,173 +2032,7 @@ body {
 }*/
 
 
-/* ============================================================
-   MOBILE RESPONSIVENESS FIXES (Add this at the end of your CSS)
-   ============================================================ */
 
-/* 1. Global Padding Adjustment */
-@media (max-width: 768px) {
-    section {
-        padding: 4rem 1.25rem; /* Sides lo padding thaggisthundi */
-    }
-    
-    .section-title {
-        font-size: 1.8rem !important; /* Title size mobile ki thaggisthundi */
-        text-align: center;
-    }
-
-    .section-desc {
-        font-size: 0.95rem;
-        text-align: center;
-        margin: 0 auto 2rem;
-    }
-}
-
-/* 2. Hero Section Mobile Fix */
-@media (max-width: 1024px) {
-    .hero-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-    }
-
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-desc {
-        margin: 0 auto 2rem;
-    }
-
-    .hero-visual {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        overflow: hidden; /* Cloud bayataki vellakunda */
-    }
-
-    /* Cloud ni mobile size ki thaggisthunnam */
-    .text-cloud {
-        width: 300px !important;
-        height: 300px !important;
-        transform: scale(0.8);
-    }
-}
-
-/* 3. Stats Section - 2 columns on mobile */
-@media (max-width: 768px) {
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .stat-num {
-        font-size: 2.2rem;
-    }
-}
-
-/* 4. Services & Industries Grid */
-@media (max-width: 768px) {
-    .services-grid {
-        grid-template-columns: 1fr; /* Single column */
-        gap: 1rem;
-    }
-
-    .industries-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
-        gap: 0.75rem;
-    }
-
-    .industry-card {
-        padding: 1rem;
-    }
-}
-
-/* 5. Why Us & Compliance Video Fix */
-@media (max-width: 768px) {
-    .why-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .compliance-card {
-        transform: translateY(0); /* Laptop lo unna overlap ni remove chesthunnam */
-        padding: 1.5rem;
-        margin-top: -20px;
-    }
-
-    .compliance-badges {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-/* 6. Insights/Blog Section */
-@media (max-width: 1024px) {
-    .insights-grid {
-        grid-template-columns: 1fr;
-    }
-    .insight-card.featured {
-        grid-column: span 1;
-    }
-}
-
-/* 7. Footer Fix */
-@media (max-width: 768px) {
-    .footer-top {
-        grid-template-columns: 1fr; /* Stack footer links */
-        text-align: center;
-        gap: 2rem;
-    }
-
-    .footer-brand {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-socials {
-        justify-content: center;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        gap: 1rem;
-    }
-}
-
-/* 8. Navbar Mobile Fix */
-#navToggle {
-    display: flex;
-}
-
-@media (min-width: 769px) {
-    #navToggle {
-        display: none;
-    }
-}
-
-/* Mobile Nav Menu improvements */
-.mobile-nav.open {
-    display: flex;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Chatbot visibility on small screens */
-@media (max-width: 480px) {
-    #chat-window {
-        width: 90%;
-        right: 5%;
-        bottom: 80px;
-    }
-}
 
 
 #bot-container {
@@ -2344,4 +2178,126 @@ body {
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   HEADER MOBILE RESPONSIVENESS FIX
+   ============================================================ */
+
+/* 1. LAPTOP VIEW (No changes here, it stays the same) */
+.nav-toggle {
+    display: none; /* Hidden on laptop */
+}
+
+/* 2. MOBILE & TABLET VIEW (Automatic switch below 992px) */
+@media (max-width: 992px) {
+    
+    /* Ensure Navbar has enough space and aligns logo left and menu right */
+    .navbar {
+        padding: 0 1.25rem;
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* FORCE HIDE the desktop links that are causing the overlap */
+    .nav-links {
+        display: none !important;
+    }
+
+    /* SHOW the 3-line Hamburger button on the right */
+    .nav-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 28px;
+        height: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 2001; /* Keep it above the drawer */
+    }
+
+    /* Style the 3 white lines */
+    .nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #ffffff;
+        border-radius: 4px;
+        transition: 0.3s ease-in-out;
+    }
+
+    /* THE MOBILE SIDE-DRAWER (Contains all your links) */
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden off-screen to the right */
+        width: 280px; /* Sidebar width */
+        height: 100vh;
+        background: #0A0F1E; /* Dark theme color */
+        display: flex !important; /* Force layout */
+        flex-direction: column;
+        padding: 100px 1.5rem 40px;
+        gap: 10px;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+        z-index: 2000;
+        overflow-y: auto;
+    }
+
+    /* When JavaScript adds the 'open' class, the menu slides in */
+    .mobile-nav.open {
+        right: 0 !important;
+    }
+
+    /* Links inside the mobile sidebar */
+    .mobile-nav a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 15px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: block;
+    }
+
+    .mobile-nav a:hover {
+        color: #E8311A; /* Your red theme color */
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Style for the CTA button in mobile menu */
+    .mobile-nav .mob-cta {
+        background: #E8311A;
+        color: #ffffff !important;
+        text-align: center;
+        border-radius: 8px;
+        margin-top: 20px;
+        font-weight: 600;
+        border: none;
+    }
+
+    /* Logo text adjustment for small screens */
+    .nav-logo-text {
+        font-size: 1rem;
+    }
 }
