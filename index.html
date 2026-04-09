@@ -23,7 +23,6 @@
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="1774862507089_TransformX_Technologies__logo.jpg" alt="TransformX Logo" onerror="this.style.display='none'">
     <span class="nav-logo-text">Transform<span>X Technologies</span></span>
   </a>
   <ul class="nav-links">
@@ -84,19 +83,31 @@
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html">Home</a>
-  <a href="company.html#about">About Us</a>
+  <a href="company.html">Company</a>
   <a href="services.html">Services</a>
   <a href="solutions.html">Solutions</a>
-  <a href="solutions.html#industries">Industries</a>
-  <a href="solutions.html#expertise">Expertise</a>
   <a href="insights.html">Insights</a>
+  <a href="legal.html">Legal</a>
+  <a href="contact.html">Contact Us</a>
+<!--
+    <a href="company.html#about">About Us</a>
+    <a href="services.html#saas">SaaS Products</a>
+  <a href="services.html#hrms">HRMS</a>
+  <a href="services.html#iot">IOT</a>
+  <a href="services.html#qa">QA Automation</a>
+  <a href="services.html#cloud">Cloud Operations</a>
+  <a href="services.html#crm">CRM</a>
+    <a href="solutions.html#industries">Industries</a>
+  <a href="solutions.html#expertise">Expertise</a>
+    <a href="insights.html#blogs">Blog & Articles</a>
   <a href="insights.html#case-studies">Case Studies</a>
-  <a href="careers.html">Careers</a>
+  <a href="company.html#careers">Careers</a>
   <a href="company.html#culture">Culture & Values</a>
   <a href="company.html#partners">Partners</a>
   <a href="insights.html#news">News</a>
-  <a href="contact.html">Contact Us</a>
-  <a href="contact.html" class="mob-cta">Get Started →</a>
+    <a href="legal.html#privacy">Privacy Policy</a>
+  <a href="legal.html#terms">Terms of Use</a>
+  <a href="legal.html#refund">Refund Policy</a> -->
 </div>
 
 <!-- HERO -->
@@ -513,14 +524,23 @@
 </footer>
 
 <script>
+const navToggle = document.getElementById("navToggle");
+const mobileNav = document.getElementById("mobileNav");
+
+navToggle.addEventListener("click", () => {
+  mobileNav.classList.toggle("active");
+});
+
+
+
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 30);
   });
 
-  const navToggle = document.getElementById('navToggle');
-  const mobileNav = document.getElementById('mobileNav');
-  navToggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
+  //const navToggle = document.getElementById('navToggle');
+  //const mobileNav = document.getElementById('mobileNav');
+  //navToggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
 
   const fadeEls = document.querySelectorAll('.fade-up');
   const observer = new IntersectionObserver((entries) => {
