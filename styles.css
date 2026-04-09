@@ -18,6 +18,53 @@
     --transition: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+
+  @media (max-width: 768px) {
+  .hero-content {
+    transform: translateX(-8px);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* 2 columns */
+    gap: 10px;
+  }
+
+  .stat-card {
+    width: 100%;
+    height: 100px;        /* same box size */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+    gap: 20px;
+  }
+
+  .footer-brand {
+    grid-column: span 2; /* brand full width top lo */
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-title {
+    text-align: left;
+    transform: translateX(-10px);  /* left move */
+  }
+}
+
+
+
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; font-size: 16px; }
   body { font-family: 'DM Sans', sans-serif; color: var(--text-body); background: var(--white); overflow-x: hidden; }
@@ -2299,4 +2346,64 @@ body {
   .hero-visual {
     display: none; /* optional clean look */
   }
+}
+
+
+
+
+/* ================= MOBILE CONTACT FIX ================= */
+
+@media (max-width: 768px) {
+
+  /* 🔥 Reduce top space */
+  .contact-main-container {
+    padding: 90px 12px 40px !important;
+  }
+
+  /* 🔥 Glass wrapper fix */
+  .contact-glass-wrapper {
+    grid-template-columns: 1fr !important;
+    padding: 20px !important;
+    gap: 20px !important;
+  }
+
+  /* 🔥 Form & Info card */
+  .form-side,
+  .info-side {
+    padding: 18px !important;
+    border-radius: 18px;
+  }
+
+  /* 🔥 Heading size like ChargeBees */
+  .contact-main-container h1 {
+    font-size: 2rem !important;
+  }
+
+  /* 🔥 Input fields */
+  .input-box {
+    padding: 12px 14px !important;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  /* 🔥 Phone group fix */
+  .phone-group {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .country-select {
+    width: 85px;
+    font-size: 13px;
+  }
+
+  .mobile-input {
+    font-size: 14px;
+  }
+
+  /* 🔥 Button full width */
+  .btn-primary {
+    width: 100% !important;
+  }
+
 }

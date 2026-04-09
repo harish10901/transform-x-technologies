@@ -12,10 +12,103 @@
   <style>
     /* ADVANCED CONTACT STYLES */
     .contact-main-container {
-      padding: 140px 20px 80px;
+      padding: 90px 12px 40px;
       max-width: 1200px;
       margin: 0 auto;
     }
+
+    .form-title {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .form-title {
+    font-size: 1.3rem !important;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .country-select {
+    width: 65px !important;
+    padding: 0 6px !important;
+    font-size: 12px;
+  }
+
+  .mobile-input {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-field {
+    margin-bottom: 8px !important;
+  }
+
+  .input-box {
+    margin-bottom: 5px !important;
+  }
+
+  .phone-group {
+    margin-bottom: 8px !important;
+  }
+
+  .error-text {
+    margin-top: -8px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .info-side {
+    padding: 20px !important;   /* full padding control */
+  }
+
+  .info-title {
+    margin-top: 0 !important;
+    margin-bottom: 15px;        /* control below spacing */
+  }
+}
+
+.info-side {
+  padding: 30px 45px 45px !important; /* top reduced, sides same */
+}
+
+.info-title {
+  margin-top: 0 !important;
+  margin-bottom: 18px;
+}
+
+    @media (max-width: 768px) {
+  .contact-main-container {
+    padding: 80px 10px 30px !important;
+  }
+
+  .contact-glass-wrapper {
+    grid-template-columns: 1fr !important;
+    padding: 20px !important;
+    gap: 20px !important;
+  }
+
+  .form-side,
+  .info-side {
+    padding: 18px !important;
+  }
+
+  .contact-main-container h1 {
+    font-size: 2rem;
+  }
+
+  .input-box {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}
 
     .contact-glass-wrapper {
       background: rgba(255, 255, 255, 0.03);
@@ -63,7 +156,7 @@
 /* Base styles for both elements */
 .country-select, 
 .mobile-input {
-    height: 50px !important;      /* Forces exact same height */
+    height: auto !important;      /* Forces exact same height */
     box-sizing: border-box !important; /* Includes border in height calculation */
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border);
@@ -71,10 +164,12 @@
     color: white;
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
-    padding: 0 15px;
+    padding: 15px 20px;
     margin: 0 !important;        /* Removes hidden browser margins */
     outline: none;
 }
+
+
 
 /* Specific Dropdown styles */
 .country-select {

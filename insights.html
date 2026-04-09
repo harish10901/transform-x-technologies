@@ -11,6 +11,55 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   
   <style>
+
+@media (max-width: 768px) {
+  #case-studies + .grid {
+    grid-template-columns: 1fr !important; /* single column */
+  }
+
+  #case-studies + .grid .blog-card:first-child {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  #news + .grid {
+    grid-template-columns: 1fr !important; /* single column */
+    gap: 20px;
+  }
+
+  #news + .grid .blog-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title-alt {
+    font-size: 1.6rem !important;
+    margin-top: 50px;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title-alt {
+    margin-top: 20px !important;   /* before 80px undi */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    margin-bottom: 0 !important;
+    padding-bottom: 20px !important;  /* reduce space */
+  }
+
+  .company-section,
+  .container {
+    margin-top: 0 !important;
+    padding-top: 20px !important;
+  }
+}
+
     /* Insights Specific Premium Styles */
     .blog-card {
       background: rgba(255, 255, 255, 0.03);
